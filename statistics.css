@@ -1,0 +1,18 @@
+/*
+ * API plugin for Wolf CMS
+ * November 2009
+ * @author Ian Dundas for Band-x.org
+ */
+.success,.enabled{
+border:1px solid #00CF6A;
+}
+.neutral,.notenabled{
+border:1px solid orange;
+}
+.disabled
+{
+border:1px solid grey;
+}
+.error{
+border:1px solid red;
+}

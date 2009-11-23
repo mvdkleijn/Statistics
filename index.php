@@ -13,6 +13,19 @@ Plugin::setInfos(array(
     'type'		=>	'both'
 ));
 
+function capture_event()
+{
+	$sm = new StatisticsManager();
+	$sm->storeRequestData($_SERVER,$_POST,$_GET);
+}
+
+#expected to be an event in wolf 0.8
+Observer::observe('dispatch_route_found', 'capture_event');
+#disable the following once <code>Observer::notify('dispatch_route_found', $uri);</code is upstream
+//@deprecated
+Observer::observe('page_requested', 'capture_event');
+
+
 Plugin::addController('statistics', 'Statistics', 'administrator,developer', TRUE);
 
 if (defined('CMS_BACKEND')) {
